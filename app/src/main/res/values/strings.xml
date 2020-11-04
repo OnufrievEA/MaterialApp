@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MaterialApp</string>
+    <string name="button_text">Button</string>
+    <string name="checkbox_text">Checkbox</string>
 </resources>
