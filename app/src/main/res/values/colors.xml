@@ -7,4 +7,7 @@
     <color name="orangePrimaryColor">#ffa000</color>
     <color name="orangePrimaryLightColor">#ffd149</color>
     <color name="orangePrimaryDarkColor">#c67100</color>
+
+    <color name="hintColor">@android:color/black</color>
+    <color name="strokeColor">#0E6C0F</color>
 </resources>

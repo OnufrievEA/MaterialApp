@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyHintStyle" parent="BlueTheme">
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="hintTextColor">@color/hintColor</item>
+        <item name="boxStrokeColor">@color/strokeColor</item>
+    </style>
+
+    <style name="MyEditTextStyle">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>
