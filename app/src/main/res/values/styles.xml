@@ -1,12 +1,12 @@
 <resources>
 
-    <style name="BlueTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="BlueTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/bluePrimaryColor</item>
         <item name="colorPrimaryDark">@color/bluePrimaryDarkColor</item>
         <item name="colorSecondary">@color/bluePrimaryLightColor</item>
     </style>
 
-    <style name="OrangeTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="OrangeTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/orangePrimaryColor</item>
         <item name="colorPrimaryDark">@color/orangePrimaryDarkColor</item>
         <item name="colorSecondary">@color/orangePrimaryLightColor</item>
