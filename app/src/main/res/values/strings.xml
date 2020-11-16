@@ -5,4 +5,5 @@
     <string name="checkbox_text">Checkbox</string>
     <string name="settings">Настройки</string>
     <string name="dark_theme">Тёмная тема</string>
+    <string name="photo_added">"Фото добавлено"</string>
 </resources>

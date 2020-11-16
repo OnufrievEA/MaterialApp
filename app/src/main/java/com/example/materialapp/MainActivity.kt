@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), FabFragment.Listener {
 
     private lateinit var passEt: TextInputEditText
     private lateinit var passLayout: TextInputLayout
@@ -26,6 +28,7 @@ class MainActivity : BaseActivity() {
             val manager = supportFragmentManager
             myDialogFragment.show(manager, "myDialog")
         }
+
         val myWatcher = MyTextWatcher(passLayout, passEt)
         passEt.addTextChangedListener(myWatcher)
     }
@@ -53,6 +56,16 @@ class MainActivity : BaseActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun fabClicked() {
+        val container = findViewById<CoordinatorLayout>(R.id.container)
+        val snackbar = Snackbar.make(
+            container,
+            resources.getString(R.string.photo_added),
+            Snackbar.LENGTH_SHORT
+        )
+        snackbar.show()
     }
 }
 
