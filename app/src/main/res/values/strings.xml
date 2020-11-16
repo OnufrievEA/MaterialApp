@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MaterialApp</string>
-    <string name="button_text">Button</string>
+    <string name="button_enabled">Enabled</string>
+    <string name="button_disabled">Disabled</string>
     <string name="checkbox_text">Checkbox</string>
     <string name="settings">Настройки</string>
     <string name="dark_theme">Тёмная тема</string>
