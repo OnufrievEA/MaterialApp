@@ -6,4 +6,6 @@
     <string name="settings">Настройки</string>
     <string name="dark_theme">Тёмная тема</string>
     <string name="photo_added">"Фото добавлено"</string>
+    <string name="login_hint">Enter login</string>
+    <string name="password_hint">Enter password</string>
 </resources>

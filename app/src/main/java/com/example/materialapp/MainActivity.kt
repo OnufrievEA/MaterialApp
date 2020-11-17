@@ -13,9 +13,9 @@ import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : BaseActivity(), FabFragment.Listener {
 
-    private lateinit var passEt: TextInputEditText
-    private lateinit var passLayout: TextInputLayout
-    private lateinit var alertButton: MaterialButton
+    private var passEt: TextInputEditText? = null
+    private var passLayout: TextInputLayout? = null
+    private var alertBtn: MaterialButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +23,8 @@ class MainActivity : BaseActivity(), FabFragment.Listener {
 
         initView()
 
-        alertButton.setOnClickListener {
-            val myDialogFragment = MyDialogFragment()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "myDialog")
-        }
-
         val myWatcher = MyTextWatcher(passLayout, passEt)
-        passEt.addTextChangedListener(myWatcher)
+        passEt?.addTextChangedListener(myWatcher)
     }
 
     private fun initView() {
@@ -39,7 +33,13 @@ class MainActivity : BaseActivity(), FabFragment.Listener {
 
         passEt = findViewById(R.id.myEt2)
         passLayout = findViewById(R.id.textInputLayout2)
-        alertButton = findViewById(R.id.buttonEnabled)
+        alertBtn = findViewById(R.id.alertBtn)
+
+        alertBtn?.setOnClickListener {
+            val myDialogFragment = MyDialogFragment()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "myDialog")
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

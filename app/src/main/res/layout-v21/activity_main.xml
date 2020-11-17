@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Enter login"
+            android:hint="@string/login_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -35,7 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Enter password"
+            android:hint="@string/password_hint"
             app:counterEnabled="true"
             app:counterMaxLength="10"
             app:errorEnabled="true"
@@ -62,7 +61,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonEnabled"
+            android:id="@+id/alertBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -82,7 +81,7 @@
             android:textColor="@drawable/button_effect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonEnabled" />
+            app:layout_constraintTop_toBottomOf="@+id/alertBtn" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:layout_width="wrap_content"
@@ -98,13 +97,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment
-        android:id="@+id/fabFragment"
         android:name="com.example.materialapp.FabFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:elevation="20dp" />
 

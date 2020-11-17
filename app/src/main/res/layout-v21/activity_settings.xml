@@ -14,12 +14,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-
         android:id="@+id/blueBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/bluePrimaryColor"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/orangePrimaryColor"
         app:layout_constraintStart_toStartOf="parent"

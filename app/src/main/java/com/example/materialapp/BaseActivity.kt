@@ -13,10 +13,9 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (isMainTheme()) {
-            setTheme(R.style.BlueTheme)
-        } else {
-            setTheme(R.style.OrangeTheme)
+        when {
+            isMainTheme() -> setTheme(R.style.BlueTheme)
+            else -> setTheme(R.style.OrangeTheme)
         }
     }
 
