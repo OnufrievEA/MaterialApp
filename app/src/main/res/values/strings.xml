@@ -8,4 +8,8 @@
     <string name="photo_added">"Фото добавлено"</string>
     <string name="login_hint">Enter login</string>
     <string name="password_hint">Enter password</string>
+    <string name="user_name">Eugene Onufriev</string>
+    <string name="user_email">Onufriev@gmail.com</string>
+    <string name="main">Главная</string>
+    <string name="color_choose">Выбор цветовой схемы</string>
 </resources>

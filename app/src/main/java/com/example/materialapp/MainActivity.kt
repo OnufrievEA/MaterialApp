@@ -1,9 +1,7 @@
 package com.example.materialapp
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.button.MaterialButton
@@ -30,6 +28,8 @@ class MainActivity : BaseActivity(), FabFragment.Listener {
     private fun initView() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+        val actionBar = supportActionBar as ActionBar
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         passEt = findViewById(R.id.myEt2)
         passLayout = findViewById(R.id.textInputLayout2)
@@ -40,22 +40,6 @@ class MainActivity : BaseActivity(), FabFragment.Listener {
             val manager = supportFragmentManager
             myDialogFragment.show(manager, "myDialog")
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu);
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.settings -> {
-                val intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun fabClicked() {
