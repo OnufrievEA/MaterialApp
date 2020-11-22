@@ -14,8 +14,6 @@ class SettingsFragment : Fragment() {
     companion object
     interface Listener {
         fun colorBtnClicked(btnId: Int)
-        fun fragmentSettingsBackBtnClicked()
-        fun fragmentSettingsNextBtnClicked()
     }
 
     private var listener: Listener? = null
@@ -31,11 +29,6 @@ class SettingsFragment : Fragment() {
         val orangeBtn = root.findViewById<MaterialButton>(R.id.orangeBtn)
         blueBtn?.setOnClickListener { listener?.colorBtnClicked(R.id.blueBtn) }
         orangeBtn?.setOnClickListener { listener?.colorBtnClicked(R.id.orangeBtn) }
-
-        val fragmentSettingsBackBtn = root.findViewById<MaterialButton>(R.id.fragmentSettingsBackBtn)
-        val fragmentSettingsNextBtn = root.findViewById<MaterialButton>(R.id.fragmentSettingsNextBtn)
-        fragmentSettingsBackBtn.setOnClickListener { listener?.fragmentSettingsBackBtnClicked() }
-        fragmentSettingsNextBtn.setOnClickListener { listener?.fragmentSettingsNextBtnClicked() }
 
         return root
     }

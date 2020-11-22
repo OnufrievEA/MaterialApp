@@ -1,31 +1,42 @@
 package com.example.materialapp
 
 import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.materialapp.mainScreen.MainFragment
 import com.example.materialapp.settings.SettingsFragment
-import com.example.materialapp.startFragment.StartFragment
+import com.google.android.material.navigation.NavigationView
 
-class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Listener,
-    StartFragment.Listener {
+class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Listener {
+
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        if (savedInstanceState == null) {
-            val startFragment = StartFragment()
-            val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragmentContainer, startFragment)
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-        }
-
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        val drawer = findViewById<DrawerLayout>(R.id.drawer)
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.startFragment, R.id.mainFragment, R.id.settingsFragment
+            ), drawer
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navigationView.setupWithNavController(navController)
     }
 
     override fun colorBtnClicked(btnId: Int) {
@@ -47,81 +58,9 @@ class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Li
         myDialogFragment.show(manager, "myDialog")
     }
 
-    override fun fragmentStartBackBtnClicked() {
-    }
-
-
-    override fun fragmentStartNextBtnClicked() {
-        val mainFragment = MainFragment()
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, mainFragment)
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-    }
-
-    override fun fragmentMainBackBtnClicked() {
-        supportFragmentManager.popBackStack()
-    }
-
-    override fun fragmentMainNextBtnClicked() {
-        val settingsFragment = SettingsFragment()
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, settingsFragment)
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-    }
-
-    override fun fragmentSettingsBackBtnClicked() {
-        supportFragmentManager.popBackStack()
-    }
-
-    override fun fragmentSettingsNextBtnClicked() {
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
 }
-
-
-//        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-
-//        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-//        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-//        val appBarConfiguration = AppBarConfiguration(setOf(R.id.main, R.id.color_chose), drawer)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navigationView.setupWithNavController(navController)
-
-
-//        val toggle = ActionBarDrawerToggle(
-//            this,
-//            drawer,
-//            toolbar,
-//            0,
-//            0
-//        )
-//        drawer.addDrawerListener(toggle)
-//        toggle.syncState()
-//
-////        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-//        navigationView.setNavigationItemSelectedListener(this)
-
-
-//    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.main -> startActivity(Intent(this, MainActivity::class.java))
-//            R.id.color_chose -> startActivity(Intent(this, SettingsActivity::class.java))
-//        }
-//        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-//        drawer.closeDrawer(GravityCompat.START)
-//        return false
-//    }
-
-//    override fun onBackPressed() {
-//        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START)
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }

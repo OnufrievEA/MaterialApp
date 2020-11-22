@@ -11,6 +11,7 @@
     <string name="user_name">Eugene Onufriev</string>
     <string name="user_email">Onufriev@gmail.com</string>
     <string name="main">Главная</string>
+    <string name="start">Старт</string>
     <string name="color_choose">Выбор цветовой схемы</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

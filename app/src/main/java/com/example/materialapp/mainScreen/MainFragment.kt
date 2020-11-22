@@ -17,8 +17,6 @@ class MainFragment : Fragment() {
     companion object
     interface Listener {
         fun alertBtnClicked()
-        fun fragmentMainBackBtnClicked()
-        fun fragmentMainNextBtnClicked()
     }
 
     private var listener: Listener? = null
@@ -36,11 +34,6 @@ class MainFragment : Fragment() {
         val passLayout = root.findViewById<TextInputLayout>(R.id.textInputLayout2)
         val myWatcher = MyTextWatcher(passLayout, passEt)
         passEt?.addTextChangedListener(myWatcher)
-
-        val fragmentMainBackBtn = root.findViewById<MaterialButton>(R.id.fragmentMainBackBtn)
-        val fragmentMainNextBtn = root.findViewById<MaterialButton>(R.id.fragmentMainNextBtn)
-        fragmentMainBackBtn.setOnClickListener { listener?.fragmentMainBackBtnClicked() }
-        fragmentMainNextBtn.setOnClickListener { listener?.fragmentMainNextBtnClicked() }
 
         return root
     }

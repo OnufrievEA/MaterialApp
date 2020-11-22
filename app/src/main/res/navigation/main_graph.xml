@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.materialapp.startFragment.StartFragment"
+        android:label="Start">
+        <action
+            android:id="@+id/action_startFragment_to_mainFragment2"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.materialapp.mainScreen.MainFragment"
+        android:label="Main"/>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.materialapp.settings.SettingsFragment"
+        android:label="Settings" />
+
+</navigation>
