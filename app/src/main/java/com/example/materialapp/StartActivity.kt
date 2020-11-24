@@ -2,6 +2,7 @@ package com.example.materialapp
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.materialapp.mainScreen.MainFragment
 import com.example.materialapp.settings.SettingsFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Listener {
 
@@ -56,6 +58,12 @@ class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Li
         val myDialogFragment = MyDialogFragment()
         val manager = supportFragmentManager
         myDialogFragment.show(manager, "myDialog")
+    }
+
+    override fun fabClicked() {
+        val coordinator = findViewById<CoordinatorLayout>(R.id.coordinator)
+        val snackbar = Snackbar.make(coordinator, "Fab clicked", Snackbar.LENGTH_SHORT)
+        snackbar.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.materialapp.MyTextWatcher
 import com.example.materialapp.R
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -17,6 +18,7 @@ class MainFragment : Fragment() {
     companion object
     interface Listener {
         fun alertBtnClicked()
+        fun fabClicked()
     }
 
     private var listener: Listener? = null
@@ -29,6 +31,9 @@ class MainFragment : Fragment() {
 
         val alertBtn = root.findViewById<MaterialButton>(R.id.alertBtn)
         alertBtn?.setOnClickListener { listener?.alertBtnClicked() }
+
+        val fab = root.findViewById<FloatingActionButton>(R.id.fab)
+        fab?.setOnClickListener { listener?.fabClicked() }
 
         val passEt = root.findViewById<TextInputEditText>(R.id.myEt2)
         val passLayout = root.findViewById<TextInputLayout>(R.id.textInputLayout2)

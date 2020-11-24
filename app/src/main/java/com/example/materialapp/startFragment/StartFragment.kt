@@ -1,11 +1,14 @@
 package com.example.materialapp.startFragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.materialapp.R
+import com.example.materialapp.StartActivity
 
 class StartFragment : Fragment() {
 
