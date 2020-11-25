@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,26 +17,24 @@ import com.google.android.material.snackbar.Snackbar
 
 class StartActivity : BaseActivity(), SettingsFragment.Listener, MainFragment.Listener {
 
-    private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
+//        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+//        setSupportActionBar(toolbar)
 
-        val drawer = findViewById<DrawerLayout>(R.id.drawer)
+
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.startFragment, R.id.mainFragment, R.id.settingsFragment
-            ), drawer
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        appBarConfiguration = AppBarConfiguration(
+//            navController.graph,
+//            drawer
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navigationView.setupWithNavController(navController)
     }
 
